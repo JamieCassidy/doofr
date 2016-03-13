@@ -1,0 +1,9 @@
+<h1>TV Shows</h1>
+
+<ul>
+  <% @shows.each do |show| %>
+    <li>
+      <%= link_to show["title"], show_path(show['epguide_name']) %>
+    </li>
+  <% end %>
+</ul>

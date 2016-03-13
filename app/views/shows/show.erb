@@ -1,0 +1,22 @@
+<h1>Show!</h1>
+<%= @seasons.first.last[0].keys %>
+<ul>
+  <% @seasons.each do |season| %>
+    <li>
+      <strong>Season: <%= season.first %></strong>
+      <ol>
+        <% season.last.each do |episode| %>
+          <li>
+            <%= link_to episode["title"], show_episode_path(episode['show']['epguide_name'], "s#{episode['season']}e#{episode['number']}") %>
+            <%= episode["release_date"] %>
+            <ul>
+              <li>
+                <%= episode["show"] %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ol>
+    </li>
+  <% end %>
+</ul>
